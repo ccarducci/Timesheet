@@ -17,6 +17,6 @@ public class TimesheetApplication {
     @RequestMapping("/")
     @ResponseBody
     String home() {
-        return "Funziona, forza crick!";
+        return "Funziona, forza crick yahoooo!";
     }
 }
