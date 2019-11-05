@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -31,11 +32,11 @@ public class TimesheetApplication {
         return "Funziona, forza crick yahoooo!";
     }
 
-    @RequestMapping("/insert")
+    @RequestMapping("/insert/{name}")
     @ResponseBody
-    String insert() {
+    String insert(@PathVariable(name = "name") String nome) {
         Customer customerToInsert = new Customer();
-        customerToInsert.firstName = "Cristiano";
+        customerToInsert.firstName = nome;
         customerRepository.insert(customerToInsert);
         return "Funziona, forza crick yahoooo!";
     }
